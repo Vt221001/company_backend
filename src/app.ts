@@ -11,6 +11,8 @@ import bodyParser from "body-parser";
 import { userRouter } from "./Routes/UserRoute";
 import { jobRouter } from "./Routes/JobRoute";
 import { blogRouter } from "./Routes/BlogRoute";
+import { jobApplicationRouter } from "./Routes/JobApplicationRoute";
+import path from "path";
 
 
 const app: Application = express();
@@ -51,6 +53,12 @@ const corsOptions: CorsOptions = {
 
 // Use CORS middleware
 app.use(cors(corsOptions));
+app.use(
+  "/public",
+  express.static(
+    path.join(__dirname, "../public")
+  )
+);
 
 app.use(express.json({ limit: "16kb" }));
 
@@ -78,6 +86,8 @@ app.use(
 );
 
 app.use("/api/v1/blogs", blogRouter);
+app.use("/api/v1/jobApplication", jobApplicationRouter);
+
 
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/jobs", jobRouter);
