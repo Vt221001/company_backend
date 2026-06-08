@@ -13,6 +13,8 @@ import { jobRouter } from "./Routes/JobRoute";
 import { blogRouter } from "./Routes/BlogRoute";
 import { jobApplicationRouter } from "./Routes/JobApplicationRoute";
 import path from "path";
+import { contactRouter } from "./Routes/ContactRoute";
+import { officeRouter } from "./Routes/OfficeRoute";
 
 
 const app: Application = express();
@@ -86,11 +88,11 @@ app.use(
 );
 
 app.use("/api/v1/blogs", blogRouter);
+app.use("/api/v1/contact", contactRouter);
 app.use("/api/v1/jobApplication", jobApplicationRouter);
-
-
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/jobs", jobRouter);
+app.use("/api/v1/office", officeRouter);
 
 
 
