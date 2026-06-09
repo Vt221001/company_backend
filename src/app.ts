@@ -15,6 +15,7 @@ import { jobApplicationRouter } from "./Routes/JobApplicationRoute";
 import path from "path";
 import { contactRouter } from "./Routes/ContactRoute";
 import { officeRouter } from "./Routes/OfficeRoute";
+import { cmsPageRouter } from "./Routes/CclRoute";
 
 
 const app: Application = express();
@@ -93,7 +94,7 @@ app.use("/api/v1/jobApplication", jobApplicationRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/jobs", jobRouter);
 app.use("/api/v1/office", officeRouter);
-
+app.use("/api/v1/ccl", cmsPageRouter);
 
 
 // Global error handling middleware
