@@ -17,18 +17,14 @@ export const createOffice = wrapAsync(
             country,
             officeType,
             address,
-            latitude,
-            longitude,
             phone,
             email,
+            mapUrl
         } = req.body;
 
         if (
             !country ||
-            !officeType ||
-            !address ||
-            latitude === undefined ||
-            longitude === undefined
+            !address
         ) {
             return next(
                 new ApiError(
@@ -42,10 +38,9 @@ export const createOffice = wrapAsync(
             country,
             officeType,
             address,
-            latitude,
-            longitude,
             phone,
             email,
+            mapUrl
         });
 
         return res.status(201).json(
