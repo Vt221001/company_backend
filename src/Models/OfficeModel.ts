@@ -5,15 +5,11 @@ import mongoose, {
 
 export interface IOffice extends Document {
     country: string;
-    officeType: string;
-
+    officeType?: string;
     address: string;
-
-    latitude: number;
-    longitude: number;
-
     phone?: string;
     email?: string;
+    mapUrl?: string;
 
 }
 
@@ -27,7 +23,6 @@ const officeSchema = new Schema(
 
         officeType: {
             type: String,
-            required: true,
             trim: true,
         },
 
@@ -35,23 +30,16 @@ const officeSchema = new Schema(
             type: String,
             required: true,
         },
-
-        latitude: {
-            type: Number,
-            required: true,
-        },
-
-        longitude: {
-            type: Number,
-            required: true,
-        },
-
         phone: {
             type: String,
             default: "",
         },
 
         email: {
+            type: String,
+            default: "",
+        },
+        mapUrl: {
             type: String,
             default: "",
         },

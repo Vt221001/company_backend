@@ -4,23 +4,16 @@ export interface IJob extends Document {
     title: string;
     department: string;
     employmentType: "Full-time" | "Part-time" | "Contract" | "Internship";
-
-    minExperience: number;
-    maxExperience: number;
-
+    experience: string;
     locations: string[];
     remoteAllowed: boolean;
-
     aboutRole: string;
-
     skills: string[];
     responsibilities: string[];
     requirements: string[];
-
-    status: "Draft" | "Published" | "Closed";
-
+    status: "active" | "Paused" | "Closed";
+    niceToHave?: string;
     createdBy: Types.ObjectId;
-
     publishedAt?: Date;
     expiresAt?: Date;
 }
@@ -45,16 +38,10 @@ const jobSchema = new Schema<IJob>(
             default: "Full-time",
         },
 
-        minExperience: {
-            type: Number,
+        experience: {
+            type: String,
             required: true,
         },
-
-        maxExperience: {
-            type: Number,
-            required: true,
-        },
-
         locations: [
             {
                 type: String,
@@ -92,11 +79,17 @@ const jobSchema = new Schema<IJob>(
                 trim: true,
             },
         ],
+        niceToHave: [
+            {
+                type: String,
+                trim: true,
+            },
+        ],
 
         status: {
             type: String,
-            enum: ["Draft", "Published", "Closed"],
-            default: "Draft",
+            enum: ["active", "paused", "closed"],
+            default: "active",
         },
 
         createdBy: {

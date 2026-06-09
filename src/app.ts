@@ -23,7 +23,7 @@ const app: Application = express();
 // Whitelist of allowed origins
 const whitelist: (string | RegExp)[] = [
   "https://mainpage.vedanshtiwari.tech",
-  "http://localhost:5174",
+  "http://localhost:5173",
   /^http:\/\/192\.168\.\d{1,3}\.\d{1,3}:5174$/,
 ];
 

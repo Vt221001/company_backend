@@ -14,13 +14,13 @@ export const createJob = wrapAsync(
                 "title",
                 "department",
                 "employmentType",
-                "minExperience",
-                "maxExperience",
+                "experience",
                 "locations",
                 "aboutRole",
                 "skills",
                 "responsibilities",
                 "requirements",
+                "status"
             ]
         );
 
@@ -104,13 +104,13 @@ export const updateJob = wrapAsync(
                 "title",
                 "department",
                 "employmentType",
-                "minExperience",
-                "maxExperience",
+                "experience",
                 "locations",
                 "aboutRole",
                 "skills",
                 "responsibilities",
                 "requirements",
+                "status"
             ]
         );
 
